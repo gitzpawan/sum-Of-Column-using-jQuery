@@ -1,0 +1,15 @@
+    $('document').ready(function () {
+                        $table2 = $('#myTable');
+                        $table2.find('tbody').append('<tr><td>Total:</td></tr>');
+                        var length = $table2.find('thead tr th').length;
+                        for (var i = 1; i < length; i++) {
+                            var sum = 0;
+                            $table2.find('tbody tr').each(function () {
+                                if (!isNaN(Number($(this).find('td').eq(i).text()))) {
+                                    sum = sum + Number($(this).find('td').eq(i).text());
+                                }
+                            });
+                            $table2.find('tbody tr:last-child').append('<td>' + sum + '</td>');
+                        }
+
+                    });
